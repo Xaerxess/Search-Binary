@@ -1,0 +1,15 @@
+
+This module implements a generic binary search algorithm.
+
+You install the module by running these commands:
+
+	perl Makefile.PL
+	make
+	make install
+
+Please report any bugs/suggestions to Erik Rantapaa <rantapaa@uswest.net>
+
+Copyright 1998 Erik Rantapaa. All rights reserved.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
