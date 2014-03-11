@@ -1,13 +1,8 @@
-#
-# $Id: Binary.pm,v 1.5 1998/12/15 20:55:08 rantapaa Exp $
-#
-# Seach::Binary
-
 package Search::Binary;
 
 =head1 NAME
 
-Search::Binary -- generic binary search
+Search::Binary - generic binary search
 
 =head1 SYNOPSIS
 
@@ -54,12 +49,11 @@ modify it under the same terms as Perl itself.
 
 =cut
 
-# use strict;
-require Exporter;
-@ISA = qw(Exporter);
-@EXPORT = qw(binary_search);
+use strict;
+use parent 'Exporter';
+our @EXPORT = qw(binary_search);
 
-$VERSION = "0.95";
+our $VERSION = "0.95";
 
 sub binary_search {
 	my $posmin = shift;
