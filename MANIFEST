@@ -1,6 +1,6 @@
-MANIFEST
-README
 Changes
-lib/Search/Binary.pm
+MANIFEST
 Makefile.PL
+README
+lib/Search/Binary.pm
 t/00-load.t

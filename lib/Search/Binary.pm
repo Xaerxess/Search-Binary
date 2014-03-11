@@ -50,61 +50,62 @@ modify it under the same terms as Perl itself.
 =cut
 
 use strict;
+use warnings;
 use parent 'Exporter';
 our @EXPORT = qw(binary_search);
 
 our $VERSION = "0.95";
 
 sub binary_search {
-	my $posmin = shift;
-	my $posmax = shift;
-	my $target = shift;
-	my $readfn = shift;
-	my $handle = shift;
-	my $smallblock = shift || 512;
+    my $posmin     = shift;
+    my $posmax     = shift;
+    my $target     = shift;
+    my $readfn     = shift;
+    my $handle     = shift;
+    my $smallblock = shift || 512;
 
-	my ($x, $compare, $mid, $lastmid);
-	my ($seeks, $reads);
+    my ($x, $compare, $mid, $lastmid);
+    my ($seeks, $reads);
 
-	# assert $posmin <= $posmax
+    # assert $posmin <= $posmax
 
-	$seeks = $reads = 0;
-	$lastmid = int(($posmin + $posmax)/2)-1;
-	while ($posmax - $posmin > $smallblock) {
+    $seeks = $reads = 0;
+    $lastmid = int(($posmin + $posmax) / 2) - 1;
+    while ($posmax - $posmin > $smallblock) {
 
-		# assert: $posmin is the beginning of a record
-		# and $target >= index value for that record 
+        # assert: $posmin is the beginning of a record
+        # and $target >= index value for that record
 
-		$seeks++;
-		$x = int(($posmin + $posmax)/2);
-		($compare, $mid) = &$readfn($handle, $target, $x);
+        $seeks++;
+        $x = int(($posmin + $posmax) / 2);
+        ($compare, $mid) = &$readfn($handle, $target, $x);
 
-		unless (defined($compare)) {
-			$posmax = $mid;
-                        next;
-                }
-                last if ($mid == $lastmid);
-                if ($compare > 0) {
-                        $posmin = $mid;
-                } else {
-                        $posmax = $mid;
-                }
-                $lastmid = $mid;
-	}
+        unless (defined($compare)) {
+            $posmax = $mid;
+            next;
+        }
+        last if ($mid == $lastmid);
+        if ($compare > 0) {
+            $posmin = $mid;
+        } else {
+            $posmax = $mid;
+        }
+        $lastmid = $mid;
+    }
 
-	# Switch to sequential search.
+    # Switch to sequential search.
 
-	$x = $posmin;
-	while ($posmin <= $posmax) {
+    $x = $posmin;
+    while ($posmin <= $posmax) {
 
-		# same loop invarient as above applies here
+        # same loop invarient as above applies here
 
-		$reads++;
-		($compare, $posmin) = &$readfn($handle, $target, $x);
-		last unless (defined($compare) && $compare > 0);
-		$x = undef;
-	}
-	wantarray ? ($posmin, $seeks, $reads) : $posmin;
+        $reads++;
+        ($compare, $posmin) = &$readfn($handle, $target, $x);
+        last unless (defined($compare) && $compare > 0);
+        $x = undef;
+    }
+    return wantarray ? ($posmin, $seeks, $reads) : $posmin;
 }
 
 1;
