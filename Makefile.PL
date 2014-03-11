@@ -8,7 +8,7 @@ require 5.002 ;
 
 WriteMakefile(
 	NAME      => 'Search::Binary',
-	VERSION_FROM   => 'Binary.pm',
+	VERSION_FROM   => 'lib/Search/Binary.pm',
 	'linkext'   => {LINKTYPE => ''},
 	'dist'    =>    {COMPRESS=>'gzip', SUFFIX=>'gz'},
 	) ;

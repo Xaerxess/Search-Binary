@@ -1,5 +1,5 @@
 MANIFEST
 README
-ChangeLog
-Binary.pm
+Changes
+lib/Search/Binary.pm
 Makefile.PL
