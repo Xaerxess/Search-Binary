@@ -3,3 +3,4 @@ README
 Changes
 lib/Search/Binary.pm
 Makefile.PL
+t/00-load.t

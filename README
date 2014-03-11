@@ -5,6 +5,7 @@ You install the module by running these commands:
 
 	perl Makefile.PL
 	make
+	make test
 	make install
 
 Please report any bugs/suggestions to Erik Rantapaa <rantapaa@uswest.net>
