@@ -14,7 +14,7 @@ my %WriteMakefileArgs = (
     TEST_REQUIRES => {
         'Test::More' => 0.88,
     },
-    ABSTRACT_FROM => 'lib/Search/Binary.pm',,
+    ABSTRACT_FROM => 'lib/Search/Binary.pm',
     AUTHOR => 'Erik Rantapaa <rantapaa@uswest.net>',
     LICENSE => 'perl_5',
     META_MERGE => {
