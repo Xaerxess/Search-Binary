@@ -1,0 +1,3 @@
+- rewrite POD (RT #58232)
+- add examples (also RT #58232)
+- add SEE ALSO and recommend List::BinarySearch which has nicer interface, has more tests and has XS backend
