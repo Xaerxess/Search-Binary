@@ -21,14 +21,14 @@ sub binary_search {
     # assert $posmin <= $posmax
 
     $seeks = $reads = 0;
-    $lastmid = int(($posmin + $posmax) / 2) - 1;
+    $lastmid = int($posmin + (($posmax - $posmin) / 2)) - 1;
     while ($posmax - $posmin > $smallblock) {
 
         # assert: $posmin is the beginning of a record
         # and $target >= index value for that record
 
         $seeks++;
-        $x = int(($posmin + $posmax) / 2);
+        $x = int($posmin + (($posmax - $posmin) / 2));
         ($compare, $mid) = &$readfn($handle, $target, $x);
 
         unless (defined($compare)) {
