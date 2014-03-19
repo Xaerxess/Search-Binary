@@ -2,6 +2,7 @@ package Search::Binary;
 
 use strict;
 use warnings;
+use Carp;
 use parent 'Exporter';
 our @EXPORT = qw(binary_search);
 
@@ -10,6 +11,11 @@ our $VERSION = "0.95";
 sub binary_search {
     my ($posmin, $posmax, $target, $readfn, $handle, $smallblock) = @_;
     $smallblock ||= 0;
+    if ($posmin > $posmax) {
+        carp 'First argument must be less then or equal to second argument'
+            . " (min: $posmin, max: $posmax)";
+        return 0; # some libraries rely on this behavior
+    }
 
     my ($x, $compare, $mid);
 

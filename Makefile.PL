@@ -7,6 +7,7 @@ my %WriteMakefileArgs = (
     VERSION_FROM   => 'lib/Search/Binary.pm',
     MIN_PERL_VERSION => '5.6.0',
     PREREQ_PM => {
+        'Carp' => 0,
         'Exporter' => 0,
         'strict' => 0,
         'warnings' => 0,
