@@ -13,7 +13,7 @@ sub binary_search {
     my $target     = shift;
     my $readfn     = shift;
     my $handle     = shift;
-    my $smallblock = shift || 512;
+    my $smallblock = shift || 0;
 
     my ($x, $compare, $mid, $lastmid);
     my ($seeks, $reads);
