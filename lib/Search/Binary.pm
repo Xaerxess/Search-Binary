@@ -69,7 +69,7 @@ Search::Binary - generic binary search
 
 =head1 SYNOPSIS
 
-  use Seach::Binary;
+  use Search::Binary;
   $pos = binary_search($min, $max, $val, $read, $handle, [$size]);
 
 =head1 DESCRIPTION
