@@ -12,7 +12,7 @@ my %WriteMakefileArgs = (
         'warnings' => 0,
     },
     TEST_REQUIRES => {
-        'Test::More' => 0.88,
+        'Test::More' => 0.96,
     },
     ABSTRACT_FROM => 'lib/Search/Binary.pm',
     AUTHOR => 'Erik Rantapaa <rantapaa@uswest.net>',
