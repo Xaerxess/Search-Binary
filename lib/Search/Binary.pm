@@ -8,20 +8,15 @@ our @EXPORT = qw(binary_search);
 our $VERSION = "0.95";
 
 sub binary_search {
-    my $posmin     = shift;
-    my $posmax     = shift;
-    my $target     = shift;
-    my $readfn     = shift;
-    my $handle     = shift;
-    my $smallblock = shift || 0;
+    my ($posmin, $posmax, $target, $readfn, $handle, $smallblock) = @_;
+    $smallblock ||= 0;
 
-    my ($x, $compare, $mid, $lastmid);
-    my ($seeks, $reads);
+    my ($x, $compare, $mid);
 
     # assert $posmin <= $posmax
 
-    $seeks = $reads = 0;
-    $lastmid = int($posmin + (($posmax - $posmin) / 2)) - 1;
+    my $seeks = my $reads = 0;
+    my $lastmid = int($posmin + (($posmax - $posmin) / 2)) - 1;
     while ($posmax - $posmin > $smallblock) {
 
         # assert: $posmin is the beginning of a record
@@ -29,7 +24,7 @@ sub binary_search {
 
         $seeks++;
         $x = int($posmin + (($posmax - $posmin) / 2));
-        ($compare, $mid) = &$readfn($handle, $target, $x);
+        ($compare, $mid) = $readfn->($handle, $target, $x);
 
         unless (defined($compare)) {
             $posmax = $mid;
@@ -52,7 +47,7 @@ sub binary_search {
         # same loop invarient as above applies here
 
         $reads++;
-        ($compare, $posmin) = &$readfn($handle, $target, $x);
+        ($compare, $posmin) = $readfn->($handle, $target, $x);
         last unless (defined($compare) && $compare > 0);
         $x = undef;
     }
