@@ -9,11 +9,14 @@ my %WriteMakefileArgs = (
     PREREQ_PM => {
         'Carp' => 0,
         'Exporter' => 0,
+        'lib' => 0,
+        'parent' => 0,
         'strict' => 0,
         'warnings' => 0,
     },
     TEST_REQUIRES => {
         'Test::More' => 0.96,
+        'Test::Warnings' => 0.012,
     },
     ABSTRACT_FROM => 'lib/Search/Binary.pm',
     AUTHOR => 'Erik Rantapaa <rantapaa@uswest.net>',
