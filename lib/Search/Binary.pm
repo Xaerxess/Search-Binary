@@ -6,7 +6,7 @@ use Carp;
 use parent 'Exporter';
 our @EXPORT = qw(binary_search);
 
-our $VERSION = '0.99';
+our $VERSION = '0.99_01';
 
 sub binary_search {
     my ($posmin, $posmax, $target, $readfn, $handle, $smallblock) = @_;
