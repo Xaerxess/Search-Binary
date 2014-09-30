@@ -8,19 +8,19 @@ INSTALLATION
 
 To install the module from CPAN, use
 
-    cpan Search::Binary
+  cpan Search::Binary
 
 If you have the App::cpanminus installer, you may prefer
 
-    cpanm Search::Binary
+  cpanm Search::Binary
 
 To install this module from tarball archive file containing this distribution,
 type
 
-	perl Makefile.PL
-	make
-	make test
-	make install
+  perl Makefile.PL
+  make
+  make test
+  make install
 
 DOCUMENTATION
 -------------
