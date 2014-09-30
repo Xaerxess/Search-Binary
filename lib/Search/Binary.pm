@@ -73,7 +73,7 @@ Search::Binary - generic binary search (DEPRECATED)
 
 Instead of using C<Search:Binary>, for most cases L<List::BinarySearch> offers
 same functionality with simpler, more robust API and thus the latter should be
-preferred and this module should be considered deprecated.
+preferred and B<this module should be considered deprecated>.
 
 C<binary_search> subroutine (which is exported by default) implements a generic
 binary search algorithm returning the I<position> of the first I<record> which
@@ -136,9 +136,9 @@ is faster alternative to pure Perl solutions, if C compiler is available.
 
 =head1 WARNINGS
 
-Prior to version 0.97, C<binary_search> returned array of three elements in
-list context, but it was undocumented and in versions newer than 0.97 this
-behavior was removed.
+Prior to version 0.97_01, C<binary_search> returned array of three elements in
+list context, but it was undocumented and in newer versions this behavior was
+removed.
 
 =head1 SEE ALSO
 
