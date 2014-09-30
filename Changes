@@ -1,3 +1,8 @@
+Development
+
+ - Removed undocumented behavior when binary_search was invoked in list
+   context (RT #58234)
+
 0.97 2014-09-30 XAERXESS
 
  - Grzegorz Rożniecki (XAERXESS) has taken over maintenance

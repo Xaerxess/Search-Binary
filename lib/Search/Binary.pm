@@ -21,14 +21,12 @@ sub binary_search {
 
     # assert $posmin <= $posmax
 
-    my $seeks = my $reads = 0;
     my $lastmid = int($posmin + (($posmax - $posmin) / 2)) - 1;
     while ($posmax - $posmin > $smallblock) {
 
         # assert: $posmin is the beginning of a record
         # and $target >= index value for that record
 
-        $seeks++;
         $x = int($posmin + (($posmax - $posmin) / 2));
         ($compare, $mid) = $readfn->($handle, $target, $x);
 
@@ -52,12 +50,11 @@ sub binary_search {
 
         # same loop invarient as above applies here
 
-        $reads++;
         ($compare, $posmin) = $readfn->($handle, $target, $x);
         last unless (defined($compare) && $compare > 0);
         $x = undef;
     }
-    return wantarray ? ($posmin, $seeks, $reads) : $posmin;
+    return $posmin;
 }
 
 1;
@@ -135,6 +132,12 @@ Using L<List::BinarySearch>, equivaluent of above code would be:
 
 so unless one wants to use more generic algorithm (e.g. for some objects
 instead of arrays), L<List::BinarySearch> functions should be preferred.
+
+=head1 WARNINGS
+
+Prior to version 0.97, C<binary_search> returned array of three elements in
+list context, but it was undocumented and in versions newer than 0.97 this
+behavior was removed.
 
 =head1 SEE ALSO
 
