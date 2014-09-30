@@ -6,7 +6,7 @@ use Carp;
 use parent 'Exporter';
 our @EXPORT = qw(binary_search);
 
-our $VERSION = '0.97_01';
+our $VERSION = '0.98';
 
 sub binary_search {
     my ($posmin, $posmax, $target, $readfn, $handle, $smallblock) = @_;
@@ -136,7 +136,7 @@ is faster alternative to pure Perl solutions, if C compiler is available.
 
 =head1 WARNINGS
 
-Prior to version 0.97_01, C<binary_search> returned array of three elements in
+Prior to version 0.98, C<binary_search> returned array of three elements in
 list context, but it was undocumented and in newer versions this behavior was
 removed.
 

@@ -1,4 +1,4 @@
-Development
+0.98 2014-09-30 XAERXESS
 
  - Removed undocumented behavior when binary_search was invoked in list
    context (RT #58234)
