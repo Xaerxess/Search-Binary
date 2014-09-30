@@ -130,8 +130,9 @@ Using L<List::BinarySearch>, equivaluent of above code would be:
 
   binsearch_pos { $a <=> $b } $value, @array;
 
-so unless one wants to use more generic algorithm (e.g. for some objects
-instead of arrays), L<List::BinarySearch> functions should be preferred.
+so unless one wants to use more generic algorithm, L<List::BinarySearch>
+functions should be preferred. There's also L<List::BinarySearch::XS> which
+is faster alternative to pure Perl solutions, if C compiler is available.
 
 =head1 WARNINGS
 
@@ -144,6 +145,8 @@ behavior was removed.
 =over 4
 
 =item * L<List::BinarySearch>
+
+=item * L<List::BinarySearch::XS>
 
 =back
 

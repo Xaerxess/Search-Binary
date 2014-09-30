@@ -3,6 +3,7 @@ Development
  - Removed undocumented behavior when binary_search was invoked in list
    context (RT #58234)
  - Added LICENSE file
+ - Mentioned List::BinarySearch::XS and removed TODO
 
 0.97 2014-09-30 XAERXESS
 
